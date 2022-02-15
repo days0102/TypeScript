@@ -32,7 +32,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: "localhost",
+    host: "0.0.0.0",
     port: 8082,
     open: false, //服务器启动时是否自动在浏览器中打开
     https: false,
