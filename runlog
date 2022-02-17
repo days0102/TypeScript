@@ -1,0 +1,30 @@
+
+> vue-project@0.0.0 dev
+> vite
+
+
+  vite v2.7.13 dev server running at:
+
+  > Local:    http://localhost:8082/
+  > Network:  http://172.20.158.25:8082/
+
+  ready in 315ms.
+
+12:25:47 PM [vite] http proxy error:
+Error: socket hang up
+    at connResetException (node:internal/errors:691:14)
+    at Socket.socketOnEnd (node:_http_client:471:23)
+    at Socket.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+12:26:29 PM [vite] http proxy error:
+Error: socket hang up
+    at connResetException (node:internal/errors:691:14)
+    at Socket.socketOnEnd (node:_http_client:471:23)
+    at Socket.emit (node:events:402:35)
+    at endReadableNT (node:internal/streams/readable:1343:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+12:28:39 PM [vite] hmr update /src/views/CreateArticleView.vue
+12:31:22 PM [vite] hmr update /src/views/CreateArticleView.vue
+12:34:34 PM [vite] hmr update /src/views/CreateArticleView.vue
+12:35:11 PM [vite] hmr update /src/views/CreateArticleView.vue
