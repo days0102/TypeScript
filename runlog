@@ -8,23 +8,17 @@
   > Local:    http://localhost:8082/
   > Network:  http://172.20.158.25:8082/
 
-  ready in 315ms.
+  ready in 556ms.
 
-12:25:47 PM [vite] http proxy error:
+7:21:43 PM [vite] http proxy error:
 Error: socket hang up
     at connResetException (node:internal/errors:691:14)
     at Socket.socketOnEnd (node:_http_client:471:23)
     at Socket.emit (node:events:402:35)
     at endReadableNT (node:internal/streams/readable:1343:12)
     at processTicksAndRejections (node:internal/process/task_queues:83:21)
-12:26:29 PM [vite] http proxy error:
-Error: socket hang up
-    at connResetException (node:internal/errors:691:14)
-    at Socket.socketOnEnd (node:_http_client:471:23)
-    at Socket.emit (node:events:402:35)
-    at endReadableNT (node:internal/streams/readable:1343:12)
-    at processTicksAndRejections (node:internal/process/task_queues:83:21)
-12:28:39 PM [vite] hmr update /src/views/CreateArticleView.vue
-12:31:22 PM [vite] hmr update /src/views/CreateArticleView.vue
-12:34:34 PM [vite] hmr update /src/views/CreateArticleView.vue
-12:35:11 PM [vite] hmr update /src/views/CreateArticleView.vue
+7:28:51 PM [vite] hmr update /src/views/CreateArticleView.vue
+7:29:08 PM [vite] hmr update /src/views/CreateArticleView.vue
+7:30:09 PM [vite] hmr update /src/views/CreateArticleView.vue
+7:41:57 PM [vite] hmr update /src/views/CreateArticleView.vue
+7:42:59 PM [vite] hmr update /src/views/CreateArticleView.vue

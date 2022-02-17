@@ -136,13 +136,18 @@ export default defineComponent({
       }
       if(this.title!="" && this.description!="" && this.content!=""){
         this.axios.post("/api/article/create",{
+          create_by:this.$root.account,
           title:this.title,
           description:this.description,
           content:this.content,
           //@ts-ignore
-          user:this.$root.account
+          //user:this.$root.account
         }).then((res)=>{
           console.log(res)
+          if(res.data.status==0){
+            message.success("发布成功")
+            this.$router.push("/article")
+          }
         })
       }
     }
