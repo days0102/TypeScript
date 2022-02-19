@@ -93,17 +93,17 @@
         {{comment.content}}
       </p>
       <p style="margin: 5px 0;padding: 0">
-          <span v-if="like" style="margin-right: 15px">
+          <span v-if="like" style="margin-right: 15px" @click="liked(comment)">
             <LikeFilled @click="" />{{ comment.likes }}
           </span>
-        <span v-else style="margin-right: 15px;">
+        <span v-else style="margin-right: 15px;" @click="liked(comment)">
             <LikeOutlined @click="" />{{ comment.likes }}
           </span>
 
-        <span v-if="dislike" style="margin-right: 15px">
+        <span v-if="dislike" style="margin-right: 15px" @click="disliked(comment)">
             <DislikeFilled @click="" />{{ comment.stars }}
           </span>
-        <span v-else style="margin-right: 15px">
+        <span v-else style="margin-right: 15px" @click="disliked(comment)">
             <DislikeOutlined @click="" />{{ comment.stars }}
           </span>
 
@@ -213,6 +213,27 @@ export default defineComponent({
 
   },
   methods: {
+    liked(comment){
+      if(!this.dislike){
+        this.like=!(this.like)
+        if(this.like){
+          comment.likes++;
+        }else{
+          comment.likes--;
+        }
+      }
+    },
+    disliked(comment){
+      if(!this.like){
+        this.dislike=!(this.dislike)
+        if(this.dislike){
+          comment.stars++;
+        }else{
+          comment.stars--;
+        }
+      }
+    },
+
     deleteComment(id:number){
       //console.log(id)
       this.axios.post("/api/comment/delete",{

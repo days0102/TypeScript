@@ -27,17 +27,17 @@
           style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;">
           {{ article.description }}</h3>
         <p style="margin-top: 10px">
-          <span v-if="like" style="margin-right: 15px">
+          <span v-if="like" style="margin-right: 15px" @click="liked(article)">
             <LikeFilled @click="" />{{ article.likes }}
           </span>
-          <span v-else style="margin-right: 15px;">
+          <span v-else style="margin-right: 15px;" @click="liked(article)">
             <LikeOutlined @click="" />{{ article.likes }}
           </span>
 
-          <span v-if="dislike" style="margin-right: 15px">
+          <span v-if="dislike" style="margin-right: 15px" @click="disliked(article)">
             <DislikeFilled @click="" />{{ article.stars }}
           </span>
-          <span v-else style="margin-right: 15px">
+          <span v-else style="margin-right: 15px" @click="disliked(article)">
             <DislikeOutlined @click="" />{{ article.stars }}
           </span>
 
@@ -98,11 +98,32 @@ export default defineComponent({
       total: 0,
       pageSize: 3,
       pageShow: 0,
-      like: 0,
-      dislike: 0
+      like: false,
+      dislike: false
     };
   },
   methods: {
+    liked(article){
+      if(!this.dislike){
+        this.like=!(this.like)
+        if(this.like){
+          article.likes++;
+        }else{
+          article.likes--;
+        }
+      }
+    },
+    disliked(article){
+      if(!this.like){
+        this.dislike=!(this.dislike)
+        if(this.dislike){
+          article.stars++;
+        }else{
+          article.stars--;
+        }
+      }
+    },
+
     handleSizeChange() {
 
     },
