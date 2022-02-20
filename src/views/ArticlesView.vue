@@ -27,14 +27,14 @@
           style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;">
           {{ article.description }}</h3>
         <p style="margin-top: 10px">
-          <span v-if="like" style="margin-right: 15px" @click="liked(article)">
+          <span v-if="article.like" style="margin-right: 15px" @click="liked(article)">
             <LikeFilled @click="" />{{ article.likes }}
           </span>
           <span v-else style="margin-right: 15px;" @click="liked(article)">
             <LikeOutlined @click="" />{{ article.likes }}
           </span>
 
-          <span v-if="dislike" style="margin-right: 15px" @click="disliked(article)">
+          <span v-if="article.star" style="margin-right: 15px" @click="disliked(article)">
             <DislikeFilled @click="" />{{ article.stars }}
           </span>
           <span v-else style="margin-right: 15px" @click="disliked(article)">
@@ -104,9 +104,9 @@ export default defineComponent({
   },
   methods: {
     liked(article){
-      if(!this.dislike){
-        this.like=!(this.like)
-        if(this.like){
+      if(!article.star){
+        article.like=!(article.like)
+        if(article.like){
           article.likes++;
         }else{
           article.likes--;
@@ -114,9 +114,9 @@ export default defineComponent({
       }
     },
     disliked(article){
-      if(!this.like){
-        this.dislike=!(this.dislike)
-        if(this.dislike){
+      if(!article.like){
+        article.star=!(article.star)
+        if(article.star){
           article.stars++;
         }else{
           article.stars--;

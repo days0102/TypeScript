@@ -93,14 +93,14 @@
         {{comment.content}}
       </p>
       <p style="margin: 5px 0;padding: 0">
-          <span v-if="like" style="margin-right: 15px" @click="liked(comment)">
+          <span v-if="comment.like" style="margin-right: 15px" @click="liked(comment)">
             <LikeFilled @click="" />{{ comment.likes }}
           </span>
         <span v-else style="margin-right: 15px;" @click="liked(comment)">
             <LikeOutlined @click="" />{{ comment.likes }}
           </span>
 
-        <span v-if="dislike" style="margin-right: 15px" @click="disliked(comment)">
+        <span v-if="comment.star" style="margin-right: 15px" @click="disliked(comment)">
             <DislikeFilled @click="" />{{ comment.stars }}
           </span>
         <span v-else style="margin-right: 15px" @click="disliked(comment)">
@@ -213,22 +213,22 @@ export default defineComponent({
 
   },
   methods: {
-    liked(comment){
-      if(!this.dislike){
-        this.like=!(this.like)
-        if(this.like){
+    liked(comment: { star: any; like: boolean; likes: number; }){
+      if(!comment.star) {
+        comment.like = !(comment.like)
+        if(comment.like){
           comment.likes++;
         }else{
           comment.likes--;
         }
       }
     },
-    disliked(comment){
-      if(!this.like){
-        this.dislike=!(this.dislike)
-        if(this.dislike){
+    disliked(comment: { like: any; star: boolean; stars: number; }) {
+      if (!comment.like) {
+        comment.star = !(comment.star)
+        if (comment.star) {
           comment.stars++;
-        }else{
+        } else {
           comment.stars--;
         }
       }
